@@ -36,6 +36,11 @@
             <asp:CheckBox ID="chkASP" runat="server" Text="ASP.Net" />
         </p>
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+        <p>
+            Nom<asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="nom" DataValueField="nom"></asp:ListBox>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [nom], [prenom] FROM [compte]"></asp:SqlDataSource>
+        </p>
+        Prénom<asp:ListBox ID="ListBox2" runat="server" DataSourceID="SqlDataSource1" DataTextField="prenom" DataValueField="prenom"></asp:ListBox>
     </form>
 </body>
 </html>
