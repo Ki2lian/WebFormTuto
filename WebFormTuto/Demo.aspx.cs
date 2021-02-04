@@ -22,7 +22,23 @@ namespace WebFormTuto
 
             cnn.Open();
 
-            Response.Write("Connection MAde");
+            SqlCommand command;
+            SqlDataReader dataReader;
+            String sql, Output = " ";
+            sql = "Select nom,prenom from compte";
+
+            command = new SqlCommand(sql, cnn);
+
+            dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Output = Output + dataReader.GetValue(0) + " " + dataReader.GetValue(1) + "</br>";
+            }
+
+            Response.Write(Output);
+            dataReader.Close();
+            command.Dispose();
+
             cnn.Close();
 
             this.date = DateTime.Now;
