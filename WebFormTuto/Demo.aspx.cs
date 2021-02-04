@@ -28,7 +28,6 @@ namespace WebFormTuto
             sql = "Select nom,prenom from compte";
 
             command = new SqlCommand(sql, cnn);
-
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
@@ -37,8 +36,15 @@ namespace WebFormTuto
 
             Response.Write(Output);
             dataReader.Close();
-            command.Dispose();
+            /*
+            SqlDataAdapter adapter = new SqlDataAdapter();
 
+            sql = "Insert into compte(nom, prenom) values('Martin', 'Pierre')";
+
+            adapter.InsertCommand = new SqlCommand(sql, cnn);
+            adapter.InsertCommand.ExecuteNonQuery();
+            */
+            command.Dispose();
             cnn.Close();
 
             this.date = DateTime.Now;
