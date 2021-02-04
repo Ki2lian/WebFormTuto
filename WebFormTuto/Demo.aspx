@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Demo.aspx.cs" Inherits="WebFormTuto.Demo" %>
+<!-- <%@ Register Src="~/TestControl.ascx" TagName="WebControl" TagPrefix="TWebControl"%> -->
 
 <!DOCTYPE html>
 
@@ -8,6 +9,8 @@
     <title></title>
 </head>
 <body dir="ltr">
+    <TWebControl:WebControl ID="Header" runat="server" MinValue="100"/>
+
     <form id="form1" runat="server">
     <h1><%=date %></h1>
     <asp:Label ID="Label1" runat="server" Text="Bonjour"></asp:Label>
