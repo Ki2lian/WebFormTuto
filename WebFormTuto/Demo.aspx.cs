@@ -16,8 +16,7 @@ namespace WebFormTuto
 
             string connetionString;
             SqlConnection cnn;
-
-            connetionString = @"Data Source=WIN-50GP30FGO75;Initial Catalog=Demodb ;User ID=sa;Password=demol23";
+            connetionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Killi\source\repos\WebFormTuto\WebFormTuto\App_Data\Database1.mdf;Integrated Security=True";
 
             cnn = new SqlConnection(connetionString);
 
