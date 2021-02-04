@@ -26,7 +26,7 @@
         <p>
             <asp:RadioButton ID="rdFemme" runat="server" Text="Femme" />
         </p>
-        <p>
+        <p class="test">
             <asp:CheckBox ID="chkC" runat="server" Text="C#" />
         </p>
         <p>
