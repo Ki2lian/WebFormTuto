@@ -20,33 +20,26 @@ namespace WebFormTuto
             cnn = new SqlConnection(connetionString);
 
             cnn.Open();
-            Response.Write("Connexion réussie");
-            cnn.Close();
+            //Response.Write("Connexion réussie");
+            
 
-            /*
-            string connetionString;
-            SqlConnection cnn;
-            connetionString = @"Server=localhost\SQLEXPRESS;Trusted_Connection=True;Database=school ;User ID=user1;Password=123456789";
-            //connetionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Killi\source\repos\WebFormTuto\WebFormTuto\App_Data\Database1.mdf;Integrated Security=True";
-
-            cnn = new SqlConnection(connetionString);
-
-            cnn.Open();
-
+            
             SqlCommand command;
             SqlDataReader dataReader;
             String sql, Output = " ";
-            sql = "Select nom,prenom from compte";
+            sql = "Select nom_etu,prenom_etu from etudiant";
 
             command = new SqlCommand(sql, cnn);
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
                 Output = Output + dataReader.GetValue(0) + " " + dataReader.GetValue(1) + "</br>";
-            }*/
+            }
 
-            //Response.Write(Output);
-            //dataReader.Close();
+            Response.Write(Output);
+            dataReader.Close();
+            command.Dispose();
+            cnn.Close();
 
             //SqlDataAdapter adapter = new SqlDataAdapter();
             /* Insertion / Update */
