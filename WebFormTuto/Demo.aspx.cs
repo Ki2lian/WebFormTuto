@@ -38,22 +38,21 @@ namespace WebFormTuto
 
             Response.Write(Output);
             dataReader.Close();
-            command.Dispose();
-            cnn.Close();
+ 
 
-            //SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlDataAdapter adapter = new SqlDataAdapter();
             /* Insertion / Update */
-            //sql = "Insert into compte(nom, prenom) values('Martin', 'Pierre')";
-            //sql = "Update compte set nom='Martin' where nom='Correc'";
-            //adapter.InsertCommand = new SqlCommand(sql, cnn);
-            //adapter.InsertCommand.ExecuteNonQuery();
+            sql = "Insert into etudiant(nom_etu, prenom_etu) values('Jean', 'Paul')";
+            //sql = "Update etudiant set nom_etu='Benjamin' where nom_etu='Jean'";
+            adapter.InsertCommand = new SqlCommand(sql, cnn);
+            adapter.InsertCommand.ExecuteNonQuery();
 
             /* Pour supprimer un élément d'une table */
-            //sql = "Delete compte where Id=3";
+            //sql = "Delete etudiant where id_etu=1";
             //adapter.DeleteCommand = new SqlCommand(sql,cnn); 
             //adapter.DeleteCommand.ExecuteNonQuery();
-            //command.Dispose();
-            //cnn.Close();
+            command.Dispose();
+            cnn.Close();
 
             this.date = DateTime.Now;
             Response.Write(Session["Name"]);
