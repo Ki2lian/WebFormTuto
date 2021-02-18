@@ -39,8 +39,52 @@
         <br />
         <br />
         <br />
-        <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource1" DataTextField="nom_etu" DataValueField="nom_etu"></asp:ListBox>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:schoolConnectionString %>" SelectCommand="SELECT [nom_etu] FROM [Etudiant]"></asp:SqlDataSource>
-    </form>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id_etu" DataSourceID="SqlDataSource2">
+            <Columns>
+                <asp:CommandField ShowSelectButton="True" ShowEditButton="True" />
+                <asp:BoundField DataField="id_etu" HeaderText="id_etu" InsertVisible="False" ReadOnly="True" SortExpression="id_etu" />
+                <asp:BoundField DataField="nom_etu" HeaderText="nom_etu" SortExpression="nom_etu" />
+                <asp:BoundField DataField="prenom_etu" HeaderText="prenom_etu" SortExpression="prenom_etu" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:schoolConnectionString3 %>" 
+            SelectCommand="SELECT * FROM [Etudiant]" 
+            ConflictDetection="CompareAllValues" 
+            DeleteCommand="DELETE FROM [Etudiant] WHERE [id_etu] = @original_id_etu AND (([nom_etu] = @original_nom_etu) OR ([nom_etu] IS NULL AND @original_nom_etu IS NULL)) AND (([prenom_etu] = @original_prenom_etu) OR ([prenom_etu] IS NULL AND @original_prenom_etu IS NULL))"
+            InsertCommand="INSERT INTO [Etudiant] ([nom_etu], [prenom_etu]) VALUES (@nom_etu, @prenom_etu)"
+            OldValuesParameterFormatString="original_{0}"
+            UpdateCommand="UPDATE [Etudiant] SET [nom_etu] = @nom_etu, [prenom_etu] = @prenom_etu WHERE [id_etu] = @original_id_etu">
+            <DeleteParameters>
+                <asp:Parameter Name="original_id_etu" Type="Int32" />
+                <asp:Parameter Name="original_nom_etu" Type="String" />
+                <asp:Parameter Name="original_prenom_etu" Type="String" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="nom_etu" Type="String" />
+                <asp:Parameter Name="prenom_etu" Type="String" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="nom_etu" Type="String" />
+                <asp:Parameter Name="prenom_etu" Type="String" />
+                <asp:Parameter Name="original_id_etu" Type="Int32" />
+                <asp:Parameter Name="original_nom_etu" Type="String" />
+                <asp:Parameter Name="original_prenom_etu" Type="String" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        </form>
 </body>
 </html>
