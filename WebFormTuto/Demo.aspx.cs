@@ -42,10 +42,10 @@ namespace WebFormTuto
 
             SqlDataAdapter adapter = new SqlDataAdapter();
             /* Insertion / Update */
-            sql = "Insert into etudiant(nom_etu, prenom_etu) values('Jean', 'Paul')";
+            //sql = "Insert into etudiant(nom_etu, prenom_etu) values('Jean', 'Paul')";
             //sql = "Update etudiant set nom_etu='Benjamin' where nom_etu='Jean'";
-            adapter.InsertCommand = new SqlCommand(sql, cnn);
-            adapter.InsertCommand.ExecuteNonQuery();
+            //adapter.InsertCommand = new SqlCommand(sql, cnn);
+            //adapter.InsertCommand.ExecuteNonQuery();
 
             /* Pour supprimer un élément d'une table */
             //sql = "Delete etudiant where id_etu=1";
